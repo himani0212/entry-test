@@ -1,3 +1,53 @@
+---
+
+## ✅ Himani Parmar – Entry Test Submission
+---
+
+### 📝 Summary of Work Completed
+
+1. ✅ **Cypress Test File Included & Passing**
+    - Located in `cypress/e2e/login.cy.js`
+    - Covers:
+      - Presence of form fields and button
+      - Successful login redirects to `/welcome`
+      - Invalid login shows `"Invalid credentials"` message
+
+2. ✅ **Bug Fixed – Login Redirect**
+    - Login now correctly redirects using React Router's `useNavigate()` after successful login
+    - Redirect was previously not working because the form submission caused a full page reload due to missing `e.preventDefault()`
+
+3. ✅ **Error Message Handling**
+    - Added state-driven error display using `setError()`
+    - Error rendered in DOM using:
+      ```jsx
+      {error && <p data-cy="login-error">{error}</p>}
+      ```
+    - Tested using Cypress with `[data-cy="login-error"]` selector
+
+---
+
+### 🔧 Brief Bug Explanation
+
+> The issue was caused by the form submission triggering a full page reload, which prevented React from managing state or routing correctly. I fixed it by adding `e.preventDefault()` in the `handleSubmit` function and using React Router's `useNavigate()` to perform a client-side redirect after login.
+
+---
+
+### 🤖 AI Tool Usage (Optional Bonus)
+
+I used **ChatGPT** during the assignment to:
+- Understand why Cypress wasn't detecting error messages
+- Confirm that the missing `e.preventDefault()` was causing a page reload
+- Get help on using `data-cy` attributes for more stable test selectors
+
+> Example Query Used:  
+> *"Why is my form in React reloading the page instead of using useNavigate redirect?"*
+
+---
+
+✅ All required tasks have been completed. You’ll find all working code, tests, and this write-up in the repo.
+---
+> ✅ Scroll down to see the original project instructions and structure from the zipBoard repo.
+
 # zipBoard Junior Position Test Project
 
 This is a test repository for the zipBoard junior position application process. This project demonstrates a simple React application with a login form and Cypress testing setup.
